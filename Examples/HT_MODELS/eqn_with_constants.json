@@ -1,0 +1,25 @@
+{
+	"FileType": "HillTau",
+	"Version": "1.0",
+	"Author": "Upi Bhalla",
+	"Description": "Test case for Equation",
+	"Comment": "Conc units are milliMolar, time units are seconds",
+	"QuantityUnits": "uM",
+	"Comment": "Note that HillTau can recognize and rescale units for constants which occur in reactions and species, but has no way to do this for units in equations. So in the list of constants below, we have molBase and KA in uM, but eqBase is in the default mM. Recommended way around this is a) to minimize use of equations, and b) if a term represents something like a basal concentration, define it as a molecule. Here eqBase could have been defined as a molecule, with units in uM.",
+	"Constants": { "molBase": 1, "KA": 1, "tau": 1.0, "eqBase":0.0002, "eqScale": 2.0},
+	"Groups": {
+		"input_g": {
+			"Species": {"input": 0.0 }
+		},
+		"output_g": {
+			"Species": {"mol": "molBase" },
+			"Reacs": {
+				"output": {"subs": ["mol", "input"],
+						"KA": "KA", "tau": "tau" }
+			},
+			"Eqns": {
+				 "eq": "eqBase + eqScale * input + mol + output"
+			}
+		}
+	}
+}

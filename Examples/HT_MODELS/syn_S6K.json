@@ -1,0 +1,42 @@
+{
+	"FileType": "HillTau",
+	"Version": "1.0",
+    "Comment": "Conc units are uM, time units are seconds", 
+    "quantityUnits": "uM", 
+    "Description": "Synaptic activity-driven protein synthesis", 
+    "Groups": {
+        "CaM": {
+            "Species": { "Ca": 0.08, "CaM": 1.0 }, 
+            "Reacs": {
+                "CaMCa4": {
+                    "tau": 20.0, "KA": 0.3017, 
+                    "subs": [ "CaM", "Ca", "Ca", "Ca", "Ca"
+                    ]
+                }
+            }
+        }, 
+        "S6K_g": {
+            "Species": { "S6K": 0.2603 }, 
+            "Reacs": {
+                "aS6K": {
+                    "tau": 268.8, "KA": 0.4111, "baseline": 0.039, 
+                    "subs": [ "cS6K", "aBDNF" ]
+                }, 
+                "cS6K": {
+                    "tau": 463.2, "KA": 0.1456, "baseline": 0.1938, 
+                    "subs": [ "S6K", "CaMCa4", "CaMCa4" ]
+                }
+            }
+        }, 
+        "BDNF_g": {
+            "Species": { "BDNF": 5e-05 }, 
+            "Reacs": {
+                "aBDNF": {
+                    "tau": 468.4, "KA": 0.8236e-3, 
+                    "subs": [ "BDNF" ]
+                }
+            }
+        }
+    }, 
+    "Author": "Upi Bhalla, mapping to model by Jan and Bhalla 2009"
+}
